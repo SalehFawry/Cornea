@@ -1,0 +1,125 @@
+/* Dark Theme Override for Energy Dashboard */
+
+:root {
+  --bg-base: #0F1110;
+  --bg-card-dark: #181A19;
+  --bg-card-light: #D8E2DC;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-inverse: #111111;
+  --text-inverse-muted: #4B5563;
+  --border-subtle: #272925;
+  --accent-mint: #A7F3D0;
+  --accent-mint-light: #D1FAE5;
+}
+
+body {
+  background-color: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+}
+
+.bg-gray-50,
+.bg-white,
+[class*="bg-white"] {
+  background-color: var(--bg-card-dark) !important;
+}
+
+[class*="text-gray-800"],
+[class*="text-gray-700"],
+[class*="text-gray-600"] {
+  color: var(--text-primary) !important;
+}
+
+[class*="text-gray-500"],
+[class*="text-gray-400"] {
+  color: var(--text-secondary) !important;
+}
+
+[class*="border-gray-100"],
+[class*="border-gray-200"] {
+  border-color: var(--border-subtle) !important;
+}
+
+[class*="bg-fawry-blue"],
+button[class*="bg-fawry-blue"] {
+  background-color: var(--accent-mint) !important;
+  color: var(--text-inverse) !important;
+}
+
+[class*="border-fawry-blue"] {
+  border-color: var(--accent-mint) !important;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #A7F3D0 0%, #D1FAE5 100%) !important;
+  color: var(--text-inverse) !important;
+}
+
+.chart-container,
+.filter-section,
+.metric-card,
+.data-table-wrapper {
+  background-color: var(--bg-card-dark) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 24px !important;
+}
+
+[class*="bg-gray-100"] {
+  background-color: var(--bg-card-dark) !important;
+}
+
+[class*="hover\:bg-gray-200"]:hover {
+  background-color: var(--border-subtle) !important;
+}
+
+aside {
+  background: var(--bg-base) !important;
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+[class*="bg-blue-50"] {
+  background-color: var(--bg-card-dark) !important;
+}
+
+[class*="text-blue-800"],
+[class*="text-blue-700"] {
+  color: var(--accent-mint) !important;
+}
+
+[class*="border-blue-200"] {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Sidebar styling */
+[aria-label="Toggle navigation"] {
+  background-color: var(--bg-card-dark) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+/* Text and backgrounds */
+.text-gray-500,
+.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-subtle) !important;
+}
+
+/* Input styling */
+input, select {
+  background-color: var(--bg-base) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Red alert/error styling */
+.bg-red-50,
+.border-red-200,
+.text-red-700 {
+  background-color: rgba(185, 28, 28, 0.2) !important;
+  border-color: rgba(185, 28, 28, 0.5) !important;
+  color: #fca5a5 !important;
+}

@@ -1,0 +1,25 @@
+# Core framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# Database — async SQLAlchemy 2.0 core
+sqlalchemy[asyncio]>=2.0.36
+
+# Database drivers (choose the one matching your target DB)
+oracledb>=2.0.0                 # Oracle async thin-mode driver (production)
+aiosqlite>=0.20.0               # SQLite (local dev / CI)
+asyncpg>=0.29.0                 # PostgreSQL (optional)
+
+# Configuration
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
+
+# Observability
+prometheus-client>=0.20.0
+prometheus-fastapi-instrumentator>=7.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+
+# Optional — CVPC route smoke test (test_cvpc_endpoints.py)
+requests>=2.28.0

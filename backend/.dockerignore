@@ -1,0 +1,17 @@
+# Exclude both the Windows venv and the Linux host venv from the image.
+# The Dockerfile installs dependencies from requirements.txt at build time.
+venv/
+venv_linux/
+
+# Byte-compiled files and caches
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# Local DB files
+*.db
+*.sqlite
+
+# Editor and OS artefacts
+.env.local
+.DS_Store

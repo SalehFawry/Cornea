@@ -1,0 +1,21 @@
+# Hide Streamlit's automatic "Pages" list in the sidebar.
+# Navigation is handled by our custom sidebar buttons (Employees, Shutter State, Customers, Alerts).
+[client]
+showSidebarNavigation = false
+
+# Theme: user can switch Light/Dark via Settings (hamburger menu > Settings > Theme).
+# Default is light; choose "Dark" or "Use system setting" for dark mode.
+[theme]
+base = "light"
+primaryColor = "#0066CC"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f8f9fa"
+textColor = "#333333"
+
+# Dark theme variant (used when user selects Dark in Settings)
+[theme.dark]
+base = "dark"
+primaryColor = "#0066CC"
+backgroundColor = "#0e1117"
+secondaryBackgroundColor = "#1e1e2e"
+textColor = "#fafafa"

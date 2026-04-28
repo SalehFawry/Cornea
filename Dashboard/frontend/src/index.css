@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Energy Dashboard Design System - CSS Variables */
+    --bg-base: #0F1110;
+    --bg-card-dark: #181A19;
+    --bg-card-light: #D8E2DC;
+    --text-primary: #FFFFFF;
+    --text-secondary: #9CA3AF;
+    --text-inverse: #111111;
+    --text-inverse-muted: #4B5563;
+    --border-subtle: #272925;
+    --accent-mint: #A7F3D0;
+    --accent-mint-light: #D1FAE5;
+    --state-on: #FFFFFF;
+    --state-off-track: #374151;
+  }
+
+  body {
+    @apply bg-energy-bg-base text-energy-text-primary min-h-screen font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Legacy Fawry styles (maintained for compatibility) */
+  .page-header-legacy {
+    background: linear-gradient(135deg, #0066CC 0%, #FFD700 100%);
+    @apply px-4 py-3 rounded-xl text-white text-center mb-4;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .page-header-legacy h1 {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    @apply text-2xl font-bold m-0;
+  }
+  .page-header-legacy p {
+    @apply text-sm opacity-90 mt-1 mb-0;
+  }
+
+  .metric-card-legacy {
+    @apply bg-white rounded-xl p-5 shadow-sm border-l-4 border-fawry-blue;
+  }
+  .metric-card-legacy .label {
+    @apply text-sm text-gray-500 font-medium mb-1;
+  }
+  .metric-card-legacy .value {
+    @apply text-2xl font-bold text-gray-800;
+  }
+
+  .filter-section-legacy {
+    @apply bg-white rounded-xl p-4 shadow-sm mb-4;
+  }
+
+  .data-table-wrapper-legacy {
+    @apply bg-white rounded-xl shadow-sm overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .data-table-wrapper-legacy table {
+    @apply w-full text-sm;
+  }
+  .data-table-wrapper-legacy thead {
+    @apply bg-gray-50;
+  }
+  .data-table-wrapper-legacy th {
+    @apply px-4 py-3 text-left font-semibold text-gray-600 border-b;
+  }
+  .data-table-wrapper-legacy td {
+    @apply px-4 py-2.5 border-b border-gray-100;
+  }
+  .data-table-wrapper-legacy tr:hover {
+    @apply bg-gray-50/60;
+  }
+
+  .chart-container-legacy {
+    @apply bg-white rounded-xl p-4 shadow-sm;
+  }
+
+  /* Energy Dashboard - New Design System */
+
+  /* Dark Card Variant */
+  .card-dark {
+    @apply bg-energy-bg-card-dark rounded-card p-6 border border-energy-border-subtle/30;
+  }
+
+  /* Light Card Variant */
+  .card-light {
+    @apply bg-energy-bg-card-light rounded-card p-6;
+  }
+
+  /* Pill Button */
+  .pill-button {
+    @apply border border-energy-text-inverse-muted text-energy-text-primary text-xs font-medium px-3.5 py-1.5 rounded-pill transition-colors hover:border-energy-text-secondary;
+  }
+
+  /* Toggle Switch */
+  .toggle-switch {
+    @apply relative inline-flex h-6 w-10 items-center rounded-full transition-colors;
+    background-color: var(--state-off-track);
+  }
+  .toggle-switch.active {
+    background-color: var(--border-subtle);
+  }
+  .toggle-switch-knob {
+    @apply inline-block h-5 w-5 rounded-full bg-white transform transition-transform translate-x-0.5;
+  }
+  .toggle-switch.active .toggle-switch-knob {
+    @apply translate-x-5;
+  }
+
+  /* Stat Display */
+  .stat-display {
+    @apply flex flex-col;
+  }
+  .stat-display .value {
+    @apply text-big-stat text-energy-text-primary;
+  }
+  .stat-display .unit {
+    @apply text-stat-unit text-energy-text-secondary mt-1;
+  }
+
+  /* Sparkline Bar Chart */
+  .sparkline-bar {
+    @apply flex items-end gap-2 h-16;
+  }
+  .sparkline-bar-item {
+    @apply w-1 rounded-full bg-energy-text-primary;
+  }
+
+  /* Weekly Mini Bar Chart */
+  .weekly-chart {
+    @apply flex justify-between items-end;
+  }
+  .weekly-chart-day {
+    @apply flex flex-col items-center gap-2;
+  }
+  .weekly-chart-bar {
+    @apply w-1.5 rounded-full bg-energy-border-subtle;
+  }
+  .weekly-chart-bar.active {
+    @apply bg-energy-text-primary;
+  }
+
+  /* Timeline Nodes */
+  .timeline {
+    @apply flex items-center gap-0;
+  }
+  .timeline-connector {
+    @apply flex-1 border-t-2 border-dotted border-energy-border-subtle;
+  }
+  .timeline-node {
+    @apply w-3 h-3 rounded-full border-2 flex-shrink-0;
+  }
+  .timeline-node.past {
+    @apply bg-energy-text-inverse border-energy-text-inverse;
+  }
+  .timeline-node.current {
+    @apply bg-transparent border-energy-text-inverse;
+  }
+
+  /* Navigation Bar */
+  .nav-bar {
+    @apply flex items-center justify-between h-16 px-8;
+  }
+
+  /* Page Header */
+  .page-header-energy {
+    @apply flex items-center justify-between mb-8;
+  }
+  .page-header-energy .title {
+    @apply text-page-title text-energy-text-primary;
+  }
+  .page-header-energy .time-display {
+    @apply flex items-baseline gap-2;
+  }
+  .page-header-energy .time-value {
+    @apply text-3xl font-light text-energy-text-primary;
+  }
+  .page-header-energy .time-label {
+    @apply text-body-label text-energy-text-secondary;
+  }
+
+  /* Grid Layout */
+  .dashboard-grid {
+    @apply grid gap-gutter;
+    grid-template-columns: 1.5fr 1fr 0.8fr;
+  }
+  .dashboard-grid-bottom {
+    @apply grid gap-gutter;
+    grid-template-columns: 0.8fr 1.2fr 1fr;
+  }
+
+  @media (max-width: 1024px) {
+    .dashboard-grid,
+    .dashboard-grid-bottom {
+      @apply grid-cols-1;
+    }
+  }
+
+  /* Progress Bar */
+  .progress-track {
+    @apply h-1.5 rounded-full bg-energy-border-subtle overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full rounded-full bg-energy-text-primary transition-all duration-500;
+  }
+
+  /* Isometric Office Glow */
+  .isometric-glow {
+    filter: drop-shadow(0 0 40px rgba(167, 243, 208, 0.15));
+  }
+}
+
+/* Scrollbar - Dark Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-energy-border-subtle rounded-full;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(167, 243, 208, 0.3);
+  color: var(--text-primary);
+}
