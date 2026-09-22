@@ -71,6 +71,8 @@ class ShutterService:
             "event_type": row.event_type,
             "timestamp": row.event_time,
             "date": row.date,
+            "confidence": getattr(row, "confidence", None),
+            "model_version": getattr(row, "model_version", None),
         }
 
     @staticmethod
@@ -99,6 +101,8 @@ class ShutterService:
             event_type=payload.event_type,
             event_time=event_time,
             date=event_date,
+            confidence=payload.confidence,
+            model_version=payload.model_version,
         )
         db.add(row)
         try:
