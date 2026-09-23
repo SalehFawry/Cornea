@@ -10,6 +10,8 @@ class ShutterEventResponse(BaseModel):
     event_type: str
     timestamp: datetime
     date: Optional[Date] = None
+    confidence: Optional[float] = None
+    model_version: Optional[str] = None
 
 
 class ShutterEventCreate(BaseModel):
@@ -20,6 +22,8 @@ class ShutterEventCreate(BaseModel):
     event_type: str
     event_time: datetime
     date: Optional[Date] = None
+    confidence: Optional[float] = None
+    model_version: Optional[str] = None
 
 
 class ShutterStatusResponse(BaseModel):
