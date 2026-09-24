@@ -41,6 +41,8 @@ class ShutterService:
                 "event_type": r.event_type,
                 "timestamp": r.event_time,
                 "date": r.date,
+                "confidence": r.confidence,
+                "model_version": r.model_version,
             }
             for idx, r in enumerate(rows)
         ]
@@ -71,8 +73,8 @@ class ShutterService:
             "event_type": row.event_type,
             "timestamp": row.event_time,
             "date": row.date,
-            "confidence": getattr(row, "confidence", None),
-            "model_version": getattr(row, "model_version", None),
+            "confidence": row.confidence,
+            "model_version": row.model_version,
         }
 
     @staticmethod

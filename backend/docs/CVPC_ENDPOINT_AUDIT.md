@@ -10,7 +10,7 @@ Audit of `central_api/routers/*.py` with `main.py` prefix `/api/v1`.
 | `PUT /api/v1/branches/{branch_id}` | **No** | `POST /api/v1/branches` with body `BranchCreate` (includes `branch_id`) | No — `BranchCreate` exists; **verb/path differ** |
 | `PUT /api/v1/employees/{employee_id}` | **No** | `POST /api/v1/branches/{branch_id}/employees` with body `EmployeeCreate` | No — `EmployeeCreate` exists; **no top-level employee route** |
 | `PUT /api/v1/branches/{branch_id}/shutter-schedule/{weekday}/{shift_order}` | **No** | `POST /api/v1/branches/{branch_id}/shutter-schedule` with body `ShutterScheduleCreate` | No — schema has `weekday`, `shift_order`; **verb/path differ** |
-| `POST /api/v1/branches/{branch_id}/events/shutter` | **No** | `POST /api/v1/branches/{branch_id}/shutter/events` | No — `ShutterEventCreate` |
+| `POST /api/v1/branches/{branch_id}/events/shutter` | **No** | `POST /api/v1/branches/{branch_id}/shutter/events` | No — `ShutterEventCreate` accepts optional `confidence` / `model_version` (JSON number or string → stored as `VARCHAR2(100)` text, truncated at 100) |
 | `POST /api/v1/branches/{branch_id}/events/cash-door` | **No** | `POST /api/v1/branches/{branch_id}/cash-door/events` | No — `CashDoorEventCreate` |
 | `POST /api/v1/alerts` | **No** | `POST /api/v1/branches/{branch_id}/alerts` | No — `AlertCreate` (expects `branch_id` in body + path segment) |
 | `POST /api/v1/branches/{branch_id}/attendance/batch` | **No** | `POST /api/v1/branches/{branch_id}/attendance/sync` | No — `AttendanceSyncPayload` |
