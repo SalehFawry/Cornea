@@ -41,6 +41,8 @@ class ShutterService:
                 "event_type": r.event_type,
                 "timestamp": r.event_time,
                 "date": r.date,
+                "confidence": r.confidence,
+                "model_version": r.model_version,
             }
             for idx, r in enumerate(rows)
         ]
