@@ -68,6 +68,10 @@ export interface ShutterEvent {
   event_type: string;
   timestamp: string;
   date?: string;
+  /** Shutter-model probability as the node reported it (stored as text). */
+  confidence?: string | null;
+  /** Weights file the node was running. */
+  model_version?: string | null;
 }
 
 export interface ShutterStatus {
